@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch for Plasma wallpaper changes
+
+[Path]
+PathChanged=%h/.config/plasma-org.kde.plasma.desktop-appletsrc
+Unit=adaptive-plasma-panels.service
+
+[Install]
+WantedBy=default.target

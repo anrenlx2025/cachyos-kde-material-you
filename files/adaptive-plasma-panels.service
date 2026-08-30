@@ -1,0 +1,7 @@
+[Unit]
+Description=Choose a readable Plasma panel theme from wallpaper brightness
+After=plasma-plasmashell.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/adaptive-plasma-panels

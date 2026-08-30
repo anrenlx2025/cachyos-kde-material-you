@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+config_file="${HOME}/.config/plasma-org.kde.plasma.desktop-appletsrc"
+light_panel_theme="WhiteSur-alt"
+dark_panel_theme="WhiteSur-dark"
+threshold="${ADAPTIVE_PANEL_THRESHOLD:-0.55}"
+
+[[ -r "$config_file" ]] || exit 0
+
+wallpaper_uri=$(sed -n 's/^Image=//p' "$config_file" | tail -n 1)
+[[ -n "$wallpaper_uri" ]] || exit 0
+
+wallpaper=${wallpaper_uri#file://}
+wallpaper=${wallpaper//%20/ }
+wallpaper=${wallpaper//%23/#}
+wallpaper=${wallpaper//%25/%}
+[[ -f "$wallpaper" ]] || exit 0
+
+brightness=$(magick "$wallpaper" -auto-orient -resize 64x64\! \
+    -colorspace Gray -format '%[fx:mean]' info:)
+
+if awk -v value="$brightness" -v limit="$threshold" \
+    'BEGIN { exit !(value >= limit) }'; then
+    desired_theme="$dark_panel_theme"
+    contrast_mode="dark glass / light text"
+else
+    desired_theme="$light_panel_theme"
+    contrast_mode="light glass / dark text"
+fi
+current_theme=$(kreadconfig6 --file plasmarc --group Theme --key name)
+if [[ "$current_theme" != "$desired_theme" ]]; then
+    plasma-apply-desktoptheme "$desired_theme" >/dev/null
+    logger -t adaptive-plasma-panels \
+        "brightness=$brightness theme=$desired_theme ($contrast_mode) wallpaper=$wallpaper"
+fi
