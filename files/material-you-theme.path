@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch Plasma wallpaper config for Material You re-theming
+
+[Path]
+PathChanged=%h/.config/plasma-org.kde.plasma.desktop-appletsrc
+Unit=material-you-theme.service
+
+[Install]
+WantedBy=paths.target

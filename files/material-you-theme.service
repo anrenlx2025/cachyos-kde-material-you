@@ -1,0 +1,8 @@
+[Unit]
+Description=Material You dynamic theming on wallpaper change
+Documentation=https://github.com/anrenlx2025/cachyos-kde-material-you
+
+[Service]
+Type=oneshot
+ExecStartPre=/usr/bin/sleep 2
+ExecStart=/usr/bin/bash %h/Documents/git/cachyos-kde-material-you/theme/apply-theme.sh

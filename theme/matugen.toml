@@ -1,0 +1,40 @@
+# Material You 取色模板注册表（matugen 配置）
+# 部署到 ~/.config/matugen/config.toml，模板本体在 ~/.config/matugen/templates/
+# 入口：theme/apply-theme.sh <壁纸路径> [--mode dark|light]
+
+[config]
+version_check = false
+# 与 Nyxuri 相同的取色算法：tonal spot（M3 标准）
+scheme = "scheme-tonal-spot"
+
+[templates.kitty]
+input_path = "templates/kitty.conf"
+output_path = "~/.config/kitty/themes/materialyou.conf"
+post_hook = "bash \"$HOME/.config/matugen/templates/kitty-apply.sh\""
+
+[templates.btop]
+input_path = "templates/btop.theme"
+output_path = "~/.config/btop/themes/materialyou.theme"
+post_hook = "bash \"$HOME/.config/matugen/templates/btop-apply.sh\""
+
+[templates.starship]
+input_path = "templates/starship-palette.toml"
+output_path = "~/.cache/materialyou/starship-palette.toml"
+post_hook = "bash \"$HOME/.config/matugen/templates/starship-apply.sh\""
+
+[templates.gtk3]
+input_path = "templates/gtk-3.0.css"
+output_path = "~/.config/gtk-3.0/gtk.css"
+
+[templates.gtk4]
+input_path = "templates/gtk-4.0.css"
+output_path = "~/.config/gtk-4.0/gtk.css"
+
+[templates.palette]
+input_path = "templates/palette.toml"
+output_path = "~/.cache/materialyou/palette.toml"
+
+[templates.plasma]
+input_path = "templates/plasma-colors.colors"
+output_path = "~/.local/share/color-schemes/.materialyou-rendered.colors"
+post_hook = "bash \"$HOME/.config/matugen/templates/plasma-apply.sh\""

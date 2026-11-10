@@ -1,0 +1,41 @@
+# MaterialYou Starship Palette (vendored from Noctalia 5.2.1, MIT)
+# Rendered by MaterialYou Shell — do not edit manually
+
+[palettes.materialyou]
+# Standard colors
+blue      = "{{colors.tertiary.default.hex}}"
+red       = "{{colors.error.default.hex}}"
+green     = "{{colors.primary.default.hex}}"
+yellow    = "{{colors.secondary.default.hex}}"
+cyan      = "{{colors.secondary_fixed_dim.default.hex}}"
+magenta   = "{{colors.surface_tint.default.hex}}"
+white     = "{{colors.on_surface.default.hex}}"
+black     = "{{colors.surface_variant.default.hex}}"
+
+# Extended palette (Catppuccin-compatible names)
+rosewater = "{{colors.secondary.default.hex}}"
+flamingo  = "{{colors.error.default.hex}}"
+pink      = "{{colors.surface_tint.default.hex}}"
+mauve     = "{{colors.surface_tint.default.hex}}"
+maroon    = "{{colors.error.default.hex}}"
+peach     = "{{colors.secondary.default.hex}}"
+teal      = "{{colors.secondary_fixed_dim.default.hex}}"
+sky       = "{{colors.secondary_fixed_dim.default.hex}}"
+sapphire  = "{{colors.tertiary.default.hex}}"
+lavender  = "{{colors.surface_tint.default.hex}}"
+
+# Text shades
+text      = "{{colors.on_surface.default.hex}}"
+subtext1  = "{{colors.on_surface.default.hex}}"
+subtext0  = "{{colors.outline.default.hex}}"
+
+# Surface shades
+overlay2  = "{{colors.outline.default.hex}}"
+overlay1  = "{{colors.outline.default.hex}}"
+overlay0  = "{{colors.surface_variant.default.hex}}"
+surface2  = "{{colors.surface_variant.default.hex}}"
+surface1  = "{{colors.surface_variant.default.hex}}"
+surface0  = "{{colors.surface.default.hex}}"
+base      = "{{colors.surface.default.hex}}"
+mantle    = "{{colors.surface.default.hex}}"
+crust     = "{{colors.surface.default.hex}}"
